@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./lib/prism.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Bourre ton fichier txt avec les inputs du site ici :</h2>
+    <input
+      type="file"
+      id="bourreTonFichierTXTici"
+      name="bourreTonFichierTXTici"
+    />
+    <p>Les résultats sont dans la console o/</p>
+    <br />
+    <br />
+    <h2>JS de la part1</h2>
+    <pre>
+      <code class="language-js">
+        // PART 1
+  
+        // On target l'input utilisateur
+        let inputSouille = document.getElementById("bourreTonFichierTXTici");
+        
+        // Ptit event listener des familles pour écouter l'event change sur l'input
+        inputSouille.addEventListener("change", function (e) {
+          // On récupère le fichier du démon
+          let pourquoiCestFormateCommeCaBordel = inputSouille.files[0];
+        
+          // On initialise le truc béni des dieux pour lire le bouzin
+          let jesus = new FileReader();
+          jesus.onload = function (e) {
+        
+            // on récupère le résultat de l'opération du saint esprit dans une var
+            let deguiDegueu = jesus.result;
+        
+            // ensuite on la formate parce que c'est dégui dégueux pour le momnent
+            let moinsDegueulasse = deguiDegueu.trim().split('\n').map((num) => parseInt(num, 10) );
+        
+            // Maintenant qu'il est tout beau tout propre on peut le reluquer comme il se doit
+            let nombreDeFoisOuCaAugmenteParceQuonEstLaPourCaALaBase = 0;
+            let lengthDuBouzin = moinsDegueulasse.length;
+            
+            // On boucle pour check si le nombre courrant est inférieur au nombre qui suit 
+            for(let i = 0; i < lengthDuBouzin; i++){
+              // On def le nombre en cours
+              let enCours = moinsDegueulasse[i];
+              // On def le nombre suivant
+              let apres = moinsDegueulasse[i + 1];
+        
+              // on fait notre comparaison et on incrémente le nombre d'augmentation si la condition return true
+              if(apres > enCours){
+                nombreDeFoisOuCaAugmenteParceQuonEstLaPourCaALaBase++;
+              }
+            }
+            // et enfin, en dehors de la boucle sinon vous allez casser le navigateur, vous faites un ptit console log des familles
+            console.log("PART 1 -> " + nombreDeFoisOuCaAugmenteParceQuonEstLaPourCaALaBase);
+          };
+        
+          jesus.readAsText(pourquoiCestFormateCommeCaBordel);
+        });
+      </code>
+    </pre>
+    <br />
+    <h2>JS de la part2</h2>
+    <pre>
+      <code class="language-js">
+        // PART 2
+  
+        // On target l'input utilisateur
+        let inputSouille2 = document.getElementById("bourreTonFichierTXTici");
+        
+        // Ptit event listener des familles pour écouter l'event change sur l'input
+        inputSouille2.addEventListener("change", function (e) {
+          // On récupère le fichier du démon
+          let pourquoiCestFormateCommeCaBordel2 = inputSouille2.files[0];
+        
+          // On initialise le truc béni des dieux pour lire le bouzin
+          let jesus2 = new FileReader();
+          jesus2.onload = function (e) {
+        
+            // on récupère le résultat de l'opération du saint esprit dans une var
+            let deguiDegueu2 = jesus2.result;
+        
+            // ensuite on la formate parce que c'est dégui dégueux pour le momnent
+            let moinsDegueulasse2 = deguiDegueu2.trim().split('\n').map((num) => parseInt(num, 10) );
+        
+            // Maintenant qu'il est tout beau tout propre on peut le reluquer comme il se doit
+            let nombreDeFoisOuCaAugmenteParceQuonEstLaPourCaALaBase2 = 0;
+            let lengthDuBouzin2 = moinsDegueulasse2.length;
+            
+            // On boucle pour check si la triplette en cours est inférieur à la triplette qui suit. On retire juste 3 à la length parce qu'on compte en triplette.
+            for(let i = 0; i < lengthDuBouzin2 -3; i++){
+              // On def le nombre en cours
+              let enCours2 = moinsDegueulasse2[i] + moinsDegueulasse2[i + 1] + moinsDegueulasse2[i + 2]
+              // On def le nombre suivant
+              let apres2 = moinsDegueulasse2[i + 1] + moinsDegueulasse2[i + 2] + moinsDegueulasse2[i + 3];
+        
+              // on fait notre comparaison et on incrémente le nombre d'augmentation si la condition return true
+              if(apres2 > enCours2){
+                nombreDeFoisOuCaAugmenteParceQuonEstLaPourCaALaBase2++;
+              }
+            }
+            // et enfin, en dehors de la boucle sinon vous allez casser le navigateur, vous faites un ptit console log des familles
+            console.log("PART 2 -> " + nombreDeFoisOuCaAugmenteParceQuonEstLaPourCaALaBase2);
+          };
+        
+          jesus2.readAsText(pourquoiCestFormateCommeCaBordel2);
+        });
+      </code>  
+    </pre>
+    <script src="part1.js"></script>
+    <script src="part2.js"></script>
+    <script src="./lib/prism.js"></script>
+  </body>
+</html>
